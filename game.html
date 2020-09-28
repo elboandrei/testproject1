@@ -1,0 +1,196 @@
+<html>
+<head><title>Rock Paper Scissors</title></head>
+<style type="text/css">
+.table {
+    display:table;
+    width:100%;
+}
+.tr {
+    display:table-row;
+}
+.d1 {
+    display:table-cell;
+    width:25%;
+}
+.d2 {
+    display:table-cell;
+    text-align:center;
+    width:50%;
+}
+.d3 {
+    display:table-cell;
+    text-align:right;
+    width:25%;
+}
+</style>
+<script type="text/Javascript">
+var ties = 0;
+var wins = 0;
+var losses = 0;
+var rounds = 0;
+// randInt returns a random integer between 0 and 2
+
+
+
+function randInt() {return Math.floor(Math.random()*3);}
+
+  function sWeapon(msg1, player, comp) {
+
+var weapon = document.getElementById ("results");
+
+if (msg1 === "tie") {
+   weapon.innerHTML = "Spongebob: " + outcome[player] + "\n" + "Plankton: " + outcome[comp];
+}
+
+if (msg1 === "win") {
+    weapon.innerHTML = "Spongebob: " + outcome[player] + "\n" + "Plankton: " + outcome[comp];
+}          
+
+if (msg1 === "lose") {
+   weapon.innerHTML =  "Spongebob: "; + outcome[player] + "\n" + "Plankton: " + outcome[comp];
+}
+results(sWeapon)
+}
+  function msgAlert(msg, player, comp) {
+var outcome = ["Rock", "Paper", "Scissors"]
+var result = document.getElementById ("result");
+
+if (msg === "tie") {
+    results.innerHTML = "Patrick disturbed their concentration *tie*\n";
+	result.innerHTML = "Spongebob: " + outcome[player] + "\n" + "Plankton: " + outcome[comp];
+}
+
+if (msg === "win") {
+    results.innerHTML = "Spongebob uses his magic spatula and won!\n";
+	result.innerHTML = "Spongebob: " + outcome[player] + "\n" + "Plankton: " + outcome[comp];
+
+}          
+
+if (msg === "lose") {
+   results.innerHTML = "Plankton cheated, and won!\n";
+   result.innerHTML =  "Spongebob: " + outcome[player] + "\n" + "Plankton: " + outcome[comp];
+}
+updatescore(msgAlert)
+}
+
+
+
+function updateRound(result){
+var round = document.getElementById("round")
+if (result === "tie") {
+rounds++;
+round.innerHTML = rounds;}
+else if (result === "wins"){
+rounds++;
+round.innerHTML = rounds;}
+else {rounds++;
+round.innerHTML = rounds;}}
+
+function updateScore(result) {
+var tie = document.getElementById("tie");
+var win = document.getElementById("win");
+var lose = document.getElementById("lose");
+
+if (result === "tie") {
+    ties++;
+    tie.innerHTML = ties;
+}
+
+if (result === "win") {
+    wins++;
+    win.innerHTML = wins;
+}
+
+if (result === "lose") {
+    losses++;
+    lose.innerHTML = losses;
+}
+}
+
+function hand(player) {
+var comp = randInt();
+
+if (player === comp) {
+    updateScore("tie");
+	updateRound("round");
+    msgAlert("tie", player, comp);
+	
+}
+
+/* Rock Conditions */
+if (player === 0 && comp === 1) {
+    updateScore("lose");
+	updateRound("round");
+    msgAlert("lose", player, comp);
+	
+}
+
+if (player === 0 && comp === 2) {
+    updateScore("win");
+	updateRound("round");
+    msgAlert("win", player, comp);
+	
+}
+
+/* Paper Conditions */
+if (player === 1 && comp === 0) {
+    updateScore("win");
+	updateRound("round");
+    msgAlert("win", player, comp);
+	
+}
+
+if (player === 1 && comp === 2) {
+    updateScore("lose");
+	updateRound("round");
+    msgAlert("lose", player, comp);
+	
+}
+
+/* Scissors Conditions */
+if (player === 2 && comp === 0) {
+    updateScore("lose");
+	updateRound("round");
+    msgAlert("lose", player, comp);
+	
+}
+
+if (player === 2 && comp === 1) {
+    updateScore("win");
+	updateRound("round");
+    msgAlert("win", player, comp);
+	
+}
+}
+</script></head>
+<body background="a.jpg">
+<div style="text-align: center;">
+<img src="asd.jpg" style="height: 150px; width: 700px">
+<div style="font-family: Stencil; font-weight: bold; color: white; font-size: 200%">Round: <span id="round">0</span>
+<center><table style="color: white; font-weight: bold; font-size: 100%">
+        <td class="d1">
+           Wins: <span id="win">0</span></div>
+        </td>
+        <td class="d2">
+             Ties: <span id="tie">0</span>
+        </td>
+        <td class="d3">Losses: <span id="lose">0</span></td>
+<center></table></div>
+
+<p><img src="3.jpg" style="float: right; margin-right: 158px" height="50px" width="150px" border="5px">
+<img src="2.jpg" style="float: left; margin-left: 158px; " height="50px" width="150px" border="5px"></p><br><br><br><br>
+<img src="spongebob.jpeg" style="float: left; margin-left: 158px; " height="150px" width="150px" border="5px">
+<img src="d.jpg" style="float: right; margin-right: 158px" height="150px" width="150px" border="5px"><br><img src="f.jpg" style="height: 100px"><br><br><br><br>
+<p style="position: relative; float: left; margin-left: 105px; align: left; cursor: hand">
+	<img src="untitled.jpg" onclick="hand(0);" id="Rock" border="5px" height="75px" width="75px">
+	<img src="paper.jpg" onclick="hand(1);" id="Paper" border="5px" height="75px" width="75px">
+	<img src="scissors.jpg" onclick="hand(2);" id="Scissors" border="5px" height="75px" width="75px">
+    </p><center>
+	<p style="float: right; margin-right: 175px">
+	<a href="game.html"><img src="4.jpg" style="height: 50px; margin-bottom: 3px"></a><br>
+	<a href="page1.html"><img src="1.jpg" style="height: 50px"></p></a><br><br><br><br>
+	<span id="result" style="color: blue; font-family: stencil; font-size: 150%"></span><br>
+	<span id="results" style="color: red; font-family: stencil; font-size: 200%">Goodluck!</span>
+	<footer><embed src="spongebob.mp3" autostart="true" width="180" height="90" loop="true" hidden="true"></footer>
+</body>
+</html>
